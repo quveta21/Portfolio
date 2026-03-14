@@ -1,0 +1,22 @@
+[2025-04-03 17:13:28] [info] Start Program:
+Path:"C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica\x64\Debug\lab2_4_cofetarie_alocare_dinamica.exe"
+Arguments:
+Working directory: "C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica\"
+Modules: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica\x64\Debug\lab2_4_cofetarie_alocare_dinamica.exe Excluded: 
+Sources: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\marcm\AppData\Local\Temp\atzjkz5i.00g 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2025-04-03 17:13:28] [info] Module: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica\x64\Debug\lab2_4_cofetarie_alocare_dinamica.exe is selected because it matches selected pattern: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie_alocare_dinamica\x64\Debug\lab2_4_cofetarie_alocare_dinamica.exe
+[2025-04-03 17:13:43] [info] ----------------------------------------------------
+[2025-04-03 17:13:43] [info] Coverage binary generated in file: C:\Users\marcm\AppData\Local\Temp\atzjkz5i.00g
+[2025-04-03 17:13:43] [info] ----------------------------------------------------
+[2025-04-03 17:13:43] [error] Your program stop with error code: 1
