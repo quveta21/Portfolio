@@ -1,0 +1,22 @@
+[2025-03-27 16:56:09] [info] Start Program:
+Path:"C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie\x64\Debug\lab2_4_cofetarie.exe"
+Arguments:
+Working directory: "C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie\"
+Modules: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie\x64\Debug\lab2_4_cofetarie.exe Excluded: 
+Sources: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\marcm\AppData\Local\Temp\fzj32o3c.gaq 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2025-03-27 16:56:09] [info] Module: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie\x64\Debug\lab2_4_cofetarie.exe is selected because it matches selected pattern: C:\Users\marcm\OneDrive\Desktop\OOP\lab2_4_cofetarie\x64\Debug\lab2_4_cofetarie.exe
+[2025-03-27 16:56:32] [info] ----------------------------------------------------
+[2025-03-27 16:56:32] [info] Coverage binary generated in file: C:\Users\marcm\AppData\Local\Temp\fzj32o3c.gaq
+[2025-03-27 16:56:32] [info] ----------------------------------------------------
+[2025-03-27 16:56:32] [error] Your program stop with error code: 1
