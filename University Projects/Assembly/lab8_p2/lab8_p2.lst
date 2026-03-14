@@ -1,0 +1,96 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, fscanf, fopen, fclose, printf         ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import fscanf msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                  import fopen msvcrt.dll
+    12                                  import fclose msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17                                      ; ...
+    18 00000000 662E74787400                nf db 'f.txt', 0
+    19 00000006 7200                        ma db 'r', 0
+    20 00000008 00000000                    descriptor dd 0
+    21 0000000C 256300                      format db '%c', 0
+    22 0000000F 4C6974657261202563-         format_frecv db 'Litera %c apare de %d ori', 0
+    22 00000018 206170617265206465-
+    22 00000021 202564206F726900   
+    23 00000029 00000000                    litera dd 0
+    24 0000002D 00000000                    frecventa dd 0
+    25 00000031 00<rept>                    aparitii times 26 db 0
+    26 0000004B 45726F6172652E2E2E-         err db 'Eroare...', 0
+    26 00000054 00                 
+    27                                  
+    28                                  ; our code starts here
+    29                                  segment code use32 class=code
+    30                                      start:
+    31                                          ; ...
+    32 00000000 68[06000000]                    push dword ma
+    33 00000005 68[00000000]                    push dword nf
+    34 0000000A FF15[00000000]                  call [fopen]
+    35 00000010 83C408                          add ESP, 4*2
+    36 00000013 83F800                          cmp EAX, 0
+    37 00000016 0F8490000000                    jz eroare_deschidere
+    38                                      
+    39 0000001C A3[08000000]                    mov [descriptor], EAX
+    40                                          repeta:
+    41 00000021 68[29000000]                    push dword litera
+    42 00000026 68[0C000000]                    push dword format
+    43 0000002B FF35[08000000]                  push dword [descriptor]
+    44 00000031 FF15[00000000]                  call [fscanf]
+    45 00000037 83C40C                          add ESP, 4*3
+    46 0000003A 83F8FF                          cmp EAX, -1
+    47 0000003D 7424                            jz gata_citire
+    48                                          
+    49 0000003F 803D[29000000]61                cmp byte[litera], 'a'
+    50 00000046 7219                            jb nu_e_lowercase
+    51 00000048 803D[29000000]7A                cmp byte[litera], 'z'
+    52 0000004F 7710                            ja nu_e_lowercase
+    53 00000051 B800000000                      mov EAX, 0
+    54 00000056 A0[29000000]                    mov AL, [litera]
+    55 0000005B FE80[D0FFFFFF]                  inc byte[aparitii + EAX - 'a']
+    56                                          nu_e_lowercase:
+    57 00000061 EBBE                            jmp repeta
+    58                                          gata_citire:
+    59                                          
+    60 00000063 B800000000                      mov EAX, 0 ; frecventa maxima -> AL
+    61 00000068 BB00000000                      mov EBX, 0 ; litera de frecventa maxima -> BL
+    62 0000006D BF[31000000]                    mov EDI, aparitii
+    63 00000072 B91A000000                      mov ECX, 26
+    64 00000077 FC                              cld
+    65                                          loop_frecventa:
+    66 00000078 AE                              scasb ; cmp AL, es:[EDI]
+    67 00000079 7705                            ja nu_e_maxim
+    68 0000007B 8A47FF                          mov AL, [EDI-1]
+    69 0000007E 89FB                            mov EBX, EDI 
+    70                                          nu_e_maxim:
+    71 00000080 E2F6                            loop loop_frecventa
+    72                                          
+    73 00000082 81EB[32000000]                  sub EBX, aparitii+1
+    74 00000088 83C361                          add EBX, 'a'
+    75                                          
+    76 0000008B 50                              push EAX
+    77 0000008C 53                              push EBX
+    78 0000008D 68[0F000000]                    push dword format_frecv
+    79 00000092 FF15[00000000]                  call [printf]
+    80 00000098 83C40C                          add ESP, 4*3
+    81                                          
+    82 0000009B FF35[08000000]                  push dword[descriptor]
+    83 000000A1 FF15[00000000]                  call [fclose]
+    84 000000A7 83C404                          add ESP, 4*1
+    85 000000AA EB0B                            jmp final
+    86                                          
+    87                                          eroare_deschidere:
+    88 000000AC 68[4B000000]                    push dword err
+    89 000000B1 FF15[00000000]                  call [printf]
+    90                                          final:
+    91                                          ; exit(0)
+    92 000000B7 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    93 000000B9 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

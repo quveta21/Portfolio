@@ -1,0 +1,48 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, scanf, printf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    12                                  
+    13                                  ; our data is declared here (the variables needed by our program)
+    14                                  segment data use32 class=data
+    15                                      ; ...
+    16 00000000 00000000                    a dd 0 ; a-dword
+    17 00000004 00000000                    b dd 0 ; b-word
+    18 00000008 256400                      format_c db '%d', 0
+    19 0000000B 2564206D6F64202564-         format_a db "%d mod %d = %d", 0
+    19 00000014 203D20256400       
+    20 0000001A 00000000                    r dd 0
+    21                                  
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          ; ...
+    26 00000000 68[00000000]                    push dword a
+    27 00000005 68[08000000]                    push dword format_c
+    28 0000000A FF15[00000000]                  call [scanf] ; citim a
+    29 00000010 68[04000000]                    push dword b
+    30 00000015 68[08000000]                    push dword format_c
+    31 0000001A FF15[00000000]                  call [scanf] ; citim b
+    32 00000020 83C410                          add ESP, 4*4 ; eliberam stiva
+    33 00000023 A1[00000000]                    mov EAX, [a]
+    34 00000028 99                              CDQ          ; punem a pe EDX:EAX pt a putea folosi idiv
+    35 00000029 8B1D[04000000]                  mov EBX, [b]
+    36 0000002F F7FB                            idiv EBX     ; EDX <- a%b
+    37 00000031 8915[1A000000]                  mov dword[r], EDX ; punem in r restul
+    38 00000037 FF35[1A000000]                  push dword[r]
+    39 0000003D FF35[04000000]                  push dword[b]
+    40 00000043 FF35[00000000]                  push dword[a] 
+    41 00000049 68[0B000000]                    push dword format_a ; punem argumentele lui printf pe stiva
+    42 0000004E FF15[00000000]                  call [printf]
+    43 00000054 83C410                          add ESP, 4*4 ; eliberam stiva
+    44                                      
+    45                                          ; exit(0)
+    46 00000057 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    47 00000059 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

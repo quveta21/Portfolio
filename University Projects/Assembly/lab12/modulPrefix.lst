@@ -1,0 +1,45 @@
+     1                                  bits 32
+     2                                  
+     3                                  global _prefix
+     4                                  
+     5                                  segment code public code use32
+     6                                  
+     7                                      _prefix:
+     8 00000000 55                              push EBP
+     9 00000001 89E5                            mov EBP, ESP
+    10 00000003 60                              pushad
+    11                                          
+    12                                          ;mov EAX, [ESP + 12] ; l1
+    13 00000004 8B4510                          mov EAX, [EBP + 16] ; l1
+    14                                          ;mov EBX, [ESP + 20] ; l2
+    15 00000007 8B5D18                          mov EBX, [EBP + 24] ; l2
+    16 0000000A 39D8                            cmp EAX, EBX ; comparam lungimile sirurilor si retinem in ECX lungimea cea mai mica
+    17 0000000C 7705                            ja l2_mai_mic
+    18 0000000E 8B4D10                          mov ECX, [EBP + 16]
+    19 00000011 EB03                            jmp parcurgere
+    20                                          
+    21                                          l2_mai_mic:
+    22 00000013 8B4D18                          mov ECX, [EBP + 24]
+    23                                          
+    24                                          parcurgere:
+    25 00000016 FC                              cld
+    26 00000017 8B750C                          mov ESI, [EBP + 12] ; s1
+    27 0000001A 8B5D14                          mov EBX, [EBP + 20] ; s2
+    28 0000001D 8B7D08                          mov EDI, [EBP + 8] ; mutam adresa prefixului in EDI ca sa stocam caracterul
+    29                                          again:
+    30 00000020 8A06                            mov AL, [ESI] ; AL <- caracterul din s1
+    31 00000022 3A03                            cmp AL, [EBX] ; comparam caracterele din cele doua siruri si se seteaza zero flag-ul
+    32 00000024 7503                            jne diferite
+    33 00000026 AA                              stosb ; adaugam caracterul la prefix
+    34 00000027 46                              inc ESI
+    35 00000028 43                              inc EBX
+    36                                          
+    37                                          diferite:
+    38 00000029 E0F5                            loopne again
+    39                                          
+    40                                          
+    41 0000002B 61                              popad
+    42 0000002C 89EC                            mov ESP, EBP
+    43 0000002E 5D                              pop EBP
+    44                                          
+    45 0000002F C3                              ret

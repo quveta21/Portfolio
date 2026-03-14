@@ -1,0 +1,78 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf, prefix               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import printf msvcrt.dll
+    10                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    11                                  
+    12                                  ; our data is declared here (the variables needed by our program)
+    13                                  segment data use32 class=data public
+    14                                      ; ...
+    15 00000000 6162636A616E6500            s1 db 'abcjane', 0
+    16                                      l1 equ $-s1-1
+    17 00000008 61626364656600              s2 db 'abcdef', 0
+    18                                      l2 equ $-s2-1
+    19 0000000F 61626C616F736B00            s3 db 'ablaosk', 0
+    20                                      l3 equ $-s3-1
+    21 00000017 00<rept>                    p1 times l1+l2+1 db 0 ; prefixul pt s1 s2
+    22 00000025 00<rept>                    p2 times l2+l3+1 db 0 ; prefixul pt s2 s3
+    23 00000033 00<rept>                    p3 times l1+l3+1 db 0 ; prefixul pt s1 s3
+    24 00000042 507265666978756C20-         format db 'Prefixul comun pentru %s si %s este %s', 10, 0
+    24 0000004B 636F6D756E2070656E-
+    24 00000054 747275202573207369-
+    24 0000005D 202573206573746520-
+    24 00000066 25730A00           
+    25                                  
+    26                                  ; our code starts here
+    27                                  segment code use32 class=code public
+    28                                      start:
+    29                                          ; ...
+    30 00000000 6A06                            push dword l2 ; ESP + 20
+    31 00000002 68[08000000]                    push dword s2 ; ESP + 16
+    32 00000007 6A07                            push dword l1 ; ESP + 12
+    33 00000009 68[00000000]                    push dword s1 ; ESP + 8
+    34 0000000E 68[17000000]                    push dword p1 ; ESP + 4
+    35 00000013 E8(00000000)                    call prefix ; gaseste prefixul comun pt s1 s2
+    36                                          
+    37 00000018 6A07                            push dword l3
+    38 0000001A 68[0F000000]                    push dword s3
+    39 0000001F 6A06                            push dword l2
+    40 00000021 68[08000000]                    push dword s2
+    41 00000026 68[25000000]                    push dword p2
+    42 0000002B E8(00000000)                    call prefix ; gaseste prefixul comun pt s2 s3
+    43                                          
+    44 00000030 6A07                            push dword l3
+    45 00000032 68[0F000000]                    push dword s3
+    46 00000037 6A07                            push dword l1
+    47 00000039 68[00000000]                    push dword s1
+    48 0000003E 68[33000000]                    push dword p3
+    49 00000043 E8(00000000)                    call prefix ; gaseste prefixul comun pt s1 s3
+    50                                          
+    51 00000048 68[17000000]                    push dword p1
+    52 0000004D 68[08000000]                    push dword s2
+    53 00000052 68[00000000]                    push dword s1
+    54 00000057 68[42000000]                    push dword format
+    55 0000005C FF15[00000000]                  call [printf] ; afiseaza prefixul pt s1 s2
+    56 00000062 83C410                          add ESP, 4*4
+    57                                          
+    58 00000065 68[25000000]                    push dword p2
+    59 0000006A 68[0F000000]                    push dword s3
+    60 0000006F 68[08000000]                    push dword s2
+    61 00000074 68[42000000]                    push dword format
+    62 00000079 FF15[00000000]                  call [printf]
+    63 0000007F 83C410                          add ESP, 4*4 ; afiseaza prefixul pt s2 s3
+    64                                          
+    65 00000082 68[33000000]                    push dword p3
+    66 00000087 68[0F000000]                    push dword s3
+    67 0000008C 68[00000000]                    push dword s1
+    68 00000091 68[42000000]                    push dword format
+    69 00000096 FF15[00000000]                  call [printf]
+    70 0000009C 83C410                          add ESP, 4*4 ; afiseaza prefixul pt s1 s3
+    71                                          
+    72                                          ; exit(0)
+    73 0000009F 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    74 000000A1 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

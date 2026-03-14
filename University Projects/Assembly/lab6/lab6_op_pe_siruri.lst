@@ -1,0 +1,44 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14 00000000 785634124D3C2B1A76-         s dd 12345678h, 1A2B3C4Dh, 0FE98DC76h
+    14 00000009 DC98FE             
+    15                                      ls equ ($-s)/4
+    16 0000000C 00<rept>                    d times ls db 0
+    17                                  
+    18                                  ; our code starts here
+    19                                  segment code use32 class=code
+    20                                      start:
+    21                                          ; ...
+    22 00000000 B903000000                      mov ECX, ls ; lungimea sirului parcurs
+    23 00000005 E31F                            jecxz final ; daca sirul nu are elemente
+    24 00000007 FC                              CLD ; directia de parcurgere de la st la dr
+    25 00000008 BE[00000000]                    mov ESI, s ; adresa sirului sursa
+    26 0000000D BF[0C000000]                    mov EDI, d ; adresa sirului destinatie
+    27                                          repeta:
+    28 00000012 AD                                  LODSD ; EAX primeste dublucuvantul din s
+    29 00000013 C1E818                              shr EAX, 24 ; in AL avem octetul superior din cuvantul superior din elementul din s
+    30 00000016 88C3                                mov BL, AL ; retinem aceasta valoare in BL pt a putea modifica AL
+    31 00000018 B703                                mov BH, 3
+    32 0000001A F6F7                                div BH ; impartim valoarea la 3
+    33 0000001C 80FC00                              CMP AH, 0 ; verificam daca restul impartirii a fost 0
+    34 0000001F 7503                                JNE urmatorul ; in caz contrar, se sare peste adaugarea lui in sirul d
+    35 00000021 88D8                                mov AL, BL
+    36 00000023 AA                                  STOSB ; adaugam octetul divizibil cu 3 in sirul d
+    37                                              urmatorul:
+    38 00000024 E2EC                            loop repeta
+    39                                          
+    40                                          final:
+    41                                              ; exit(0)
+    42 00000026 6A00                                push    dword 0      ; push the parameter for exit onto the stack
+    43 00000028 FF15[00000000]                      call    [exit]       ; call exit to terminate the program

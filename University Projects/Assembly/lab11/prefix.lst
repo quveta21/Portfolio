@@ -1,0 +1,34 @@
+     1                                  bits 32
+     2                                  
+     3                                  global prefix
+     4                                  
+     5                                  segment code use32 class=code public
+     6                                  
+     7                                      prefix:
+     8 00000000 8B44240C                        mov EAX, [ESP + 12] ; l1
+     9 00000004 8B5C2414                        mov EBX, [ESP + 20] ; l2
+    10 00000008 39D8                            cmp EAX, EBX ; comparam lungimile sirurilor si retinem in ECX lungimea cea mai mica
+    11 0000000A 7706                            ja l2_mai_mic
+    12 0000000C 8B4C240C                        mov ECX, [ESP + 12]
+    13 00000010 EB04                            jmp parcurgere
+    14                                          
+    15                                          l2_mai_mic:
+    16 00000012 8B4C2414                        mov ECX, [ESP + 20]
+    17                                          
+    18                                          parcurgere:
+    19 00000016 FC                              cld
+    20 00000017 8B742408                        mov ESI, [ESP + 8] ; s1
+    21 0000001B 8B5C2410                        mov EBX, [ESP + 16] ; s2
+    22 0000001F 8B7C2404                        mov EDI, [ESP + 4] ; mutam adresa prefixului in EDI ca sa stocam caracterul
+    23                                          again:
+    24 00000023 8A06                            mov AL, [ESI] ; AL <- caracterul din s1
+    25 00000025 3A03                            cmp AL, [EBX] ; comparam caracterele din cele doua siruri si se seteaza zero flag-ul
+    26 00000027 7503                            jne diferite
+    27 00000029 AA                              stosb ; adaugam caracterul la prefix
+    28 0000002A 46                              inc ESI
+    29 0000002B 43                              inc EBX
+    30                                          
+    31                                          diferite:
+    32 0000002C E0F5                            loopne again
+    33                                          
+    34 0000002E C21400                      ret 4*5
