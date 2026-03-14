@@ -1,0 +1,22 @@
+[2025-05-15 16:40:24] [info] Start Program:
+Path:"C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie\x64\Debug\lab6_7_farmacie.exe"
+Arguments:
+Working directory: "C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie\"
+Modules: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie\x64\Debug\lab6_7_farmacie.exe Excluded: 
+Sources: Selected: C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: Binary C:\Users\marcm\AppData\Local\Temp\3kh1czrn.tlh 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2025-05-15 16:40:24] [info] Module: C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie\x64\Debug\lab6_7_farmacie.exe is selected because it matches selected pattern: C:\Users\marcm\OneDrive\Desktop\OOP\lab6_7_farmacie\x64\Debug\lab6_7_farmacie.exe
+[2025-05-15 16:40:30] [info] ----------------------------------------------------
+[2025-05-15 16:40:30] [info] Coverage binary generated in file: C:\Users\marcm\AppData\Local\Temp\3kh1czrn.tlh
+[2025-05-15 16:40:30] [info] ----------------------------------------------------
+[2025-05-15 16:40:30] [error] Your program stop with error code: 1
