@@ -1,0 +1,6 @@
+﻿  bfs.cpp
+C:\Users\marcm\OneDrive\Desktop\Grafuri\bfs\bfs.cpp(4,9): warning C4005: 'INFINITY': macro redefinition
+      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_math.h(88,9):
+      see previous definition of 'INFINITY'
+  
+  bfs.vcxproj -> C:\Users\marcm\OneDrive\Desktop\Grafuri\bfs\x64\Debug\bfs.exe
