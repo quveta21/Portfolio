@@ -1,0 +1,38 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14 00000000 01030507                    s1 db 1,3,5,7
+    15 00000004 02060904                    s2 db 2,6,9,4
+    16                                      ls equ $-s2
+    17 00000008 00<rept>                    d times ls*2 db 0
+    18                                  
+    19                                  ; our code starts here
+    20                                  segment code use32 class=code
+    21                                      start:
+    22                                          ; ...
+    23 00000000 BE00000000                      mov ESI, 0 ; indexam cu 0 pt a folosi [s1+ESI] si [s2+ESI]
+    24 00000005 BF[08000000]                    mov EDI, d ; adresa sirului destinatie
+    25 0000000A B904000000                      mov ECX, ls ; lungimea sirurilor parcurse
+    26 0000000F E317                            jecxz final ; jump la sfarsit daca lungimea sirurilor este 0
+    27                                          repeta:
+    28 00000011 8A86[00000000]                      mov AL, [s1 + ESI] ; mutam in AL elementul din primul sir
+    29 00000017 8AA6[04000000]                      mov AH, [s2 + ESI] ; mutam in AH elementul respectiv din al doilea sir
+    30 0000001D 8807                                mov [EDI], AL ; punem in sirul destinatie s1[esi]
+    31 0000001F 886701                              mov [EDI+1], AH ; punem in sirul destinatie s2[esi]
+    32 00000022 46                                  inc ESI ; trecem la urmatoarea pozitie din s1 si s2
+    33 00000023 83C702                              add EDI, 2 ; incrementam sirul destinatie cu 2 deoarece adaugam 2 elemente la un pas 
+    34 00000026 E2E9                            loop repeta
+    35                                          final:
+    36                                              ; exit(0)
+    37 00000028 6A00                                push    dword 0      ; push the parameter for exit onto the stack
+    38 0000002A FF15[00000000]                      call    [exit]       ; call exit to terminate the program
