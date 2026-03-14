@@ -1,0 +1,8 @@
+11,1,single,20
+23,2,double,50
+10,1,double,40
+25,2,suite,60
+16,1,suite,45
+22,2,double,20
+33,3,suite,35
+19,1,single,15
