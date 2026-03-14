@@ -1,0 +1,5 @@
+2222,Opel,4000,Astra,24,10,2022
+3333,Audi,8000,A4,12,6,2025
+5555,Volkswagen,6000,Passat,17,5,2024
+6666,Skoda,2000,Octavia,7,8,2025
+1111,Volkswagen,5000,Golf,12,1,2025
