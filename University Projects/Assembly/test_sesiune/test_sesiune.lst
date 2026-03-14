@@ -1,0 +1,103 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                  import printf msvcrt.dll
+    10                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    11                                  
+    12                                  ; our data is declared here (the variables needed by our program)
+    13                                  segment data use32 class=data
+    14                                      ; ...
+    15 00000000 FFFFFFFF40E20100FF-         sir dd -1, 123456, 0ABCDEFFh, 0ABCDEFFh, 0CBCDEFFh, 0DBCDEFFh, 0111010101b
+    15 00000009 DEBC0AFFDEBC0AFFDE-
+    15 00000012 BC0CFFDEBC0DD50100-
+    15 0000001B 00                 
+    16                                      lungime_sir equ ($-sir)/4
+    17 0000001C 25782000                    format_afisare db '%x ', 0
+    18 00000020 00<rept>                    sir_sume times lungime_sir db 0
+    19 00000027 00000000                    index dd 0
+    20 0000002B 0D0A00                      spatiu db 13,10,0
+    21                                      
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25                                          ; ...
+    26 00000000 B907000000                      mov ECX, lungime_sir
+    27 00000005 FC                              CLD
+    28 00000006 BE[00000000]                    mov ESI, sir
+    29 0000000B BF[20000000]                    mov EDI, sir_sume
+    30                                          repeta:
+    31 00000010 B300                                mov BL, 0 ; aici calculam cifrelor suma fiecarui numar
+    32 00000012 AD                                  lodsd ; EAX <- numarul curent
+    33                                              repeta_suma:
+    34 00000013 89C2                                    mov EDX, EAX
+    35 00000015 83E20F                                  and EDX, 0Fh
+    36 00000018 00D3                                    add BL, DL ; adunam ultima cifra binara
+    37 0000001A C1E804                                  shr EAX, 4
+    38 0000001D 83F800                                  cmp EAX, 0
+    39 00000020 75F1                                jnz repeta_suma
+    40 00000022 88D8                                mov AL, BL
+    41 00000024 AA                                  stosb
+    42 00000025 E2E9                            loop repeta
+    43                                          
+    44 00000027 BE[21000000]                    mov ESI, sir_sume + 1
+    45 0000002C 8A1D[20000000]                  mov BL, [sir_sume] ; in bl avem suma anterioara
+    46 00000032 B906000000                      mov ECX, lungime_sir - 1
+    47 00000037 B201                            mov DL, 1 ; lungimea curenta
+    48 00000039 FC                              CLD
+    49                                          cauta:
+    50 0000003A AC                                  lodsb ; AL <- suma curenta
+    51 0000003B 38C3                                cmp BL, AL
+    52 0000003D 7263                                jb urmator ; suma anterioara e mai mica
+    53 0000003F 80FA01                              cmp DL, 1
+    54 00000042 7462                                je nu_e_secventa
+    55 00000044 56                                  push ESI
+    56 00000045 BE[00000000]                        mov ESI, sir
+    57 0000004A 0335[27000000]                      add ESI, [index]
+    58 00000050 0335[27000000]                      add ESI, [index]
+    59 00000056 0335[27000000]                      add ESI, [index]
+    60 0000005C 0335[27000000]                      add ESI, [index]
+    61 00000062 50                                  push EAX
+    62 00000063 53                                  push EBX
+    63 00000064 51                                  push ECX
+    64 00000065 52                                  push EDX
+    65 00000066 0FB6CA                              movzx ECX, DL
+    66                                              repeta_afisare:
+    67 00000069 AD                                      lodsd
+    68 0000006A 51                                      push ECX
+    69 0000006B 50                                      push EAX
+    70 0000006C 68[1C000000]                            push dword format_afisare
+    71 00000071 FF15[00000000]                          call [printf]
+    72 00000077 83C408                                  add ESP, 4*2
+    73 0000007A 59                                      pop ECX
+    74 0000007B E2EC                                loop repeta_afisare
+    75 0000007D 68[2B000000]                        push dword spatiu
+    76 00000082 FF15[00000000]                      call [printf]
+    77 00000088 83C404                              add ESP, 4*1
+    78 0000008B 5A                                  pop EDX
+    79 0000008C 59                                  pop ECX
+    80 0000008D 5B                                  pop EBX
+    81 0000008E 58                                  pop EAX
+    82 0000008F 5E                                  pop ESI
+    83 00000090 B200                                mov DL, 0
+    84 00000092 C705[27000000]0700-                 mov dword[index], lungime_sir
+    84 0000009A 0000               
+    85 0000009C 290D[27000000]                      sub dword[index], ECX
+    86                                              urmator:
+    87 000000A2 FEC2                                inc DL
+    88 000000A4 EB10                                jmp e_secventa
+    89                                              nu_e_secventa:
+    90 000000A6 C705[27000000]0700-                 mov dword[index], lungime_sir
+    90 000000AE 0000               
+    91 000000B0 290D[27000000]                      sub dword[index], ECX
+    92                                              e_secventa:
+    93 000000B6 88C3                                mov BL, AL
+    94 000000B8 E280                            loop cauta
+    95                                          
+    96                                          ; exit(0)
+    97 000000BA 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    98 000000BC FF15[00000000]                  call    [exit]       ; call exit to terminate the program

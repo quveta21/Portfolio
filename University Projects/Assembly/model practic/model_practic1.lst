@@ -1,0 +1,89 @@
+     1                                  ; Se da numele unui fisier. Acesta contine cifre separate prin spatiu (baza 16). Sa se afiseze
+     2                                  ; fiecare cifra citita din fisier si nr de biti 1 din reprezentarea binara a acesteia.
+     3                                  
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit, fopen, fscanf, printf            ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                  import fscanf msvcrt.dll
+    14                                  import printf msvcrt.dll
+    15                                  import fopen msvcrt.dll
+    16                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    17                                  
+    18                                  ; our data is declared here (the variables needed by our program)
+    19                                  segment data use32 class=data public
+    20                                      ; ...
+    21 00000000 666973696572312E74-         nf db 'fisier1.txt', 0
+    21 00000009 787400             
+    22 0000000C 7200                        ma db 'r', 0
+    23 0000000E 00000000                    descriptor dd 0
+    24 00000012 00000000                    cifra dd 0
+    25 00000016 00000000                    frecventa dd 0
+    26 0000001A 257800                      format db '%x', 0
+    27 0000001D 2578202D2025640A00          format_afisare db '%x - %d', 10, 0
+    28                                      
+    29                                  
+    30                                  ; our code starts here
+    31                                  segment code use32 class=code public
+    32                                      start:
+    33                                          ; ...
+    34 00000000 68[0C000000]                    push dword ma
+    35 00000005 68[00000000]                    push dword nf
+    36 0000000A FF15[00000000]                  call [fopen]
+    37 00000010 83C408                          add ESP, 4*2
+    38 00000013 83F800                          cmp EAX, 0
+    39 00000016 745D                            jz eroare_deschidere
+    40 00000018 A3[0E000000]                    mov [descriptor], EAX
+    41                                        
+    42                                          citire_repeta:  
+    43 0000001D 68[12000000]                    push dword cifra
+    44 00000022 68[1A000000]                    push dword format
+    45 00000027 FF35[0E000000]                  push dword [descriptor]
+    46 0000002D FF15[00000000]                  call [fscanf]
+    47 00000033 83C40C                          add ESP, 4*3
+    48 00000036 83F8FF                          cmp EAX, -1
+    49 00000039 743A                            jz gata_citire
+    50                                          
+    51                                          ; push dword 0
+    52                                          ; push dword cifra
+    53                                          ; call nr_biti_1
+    54                                          
+    55                                          nr_biti_1:
+    56 0000003B A1[12000000]                    mov EAX, [cifra] ; in EAX retinem numarul
+    57 00000040 BB00000000                      mov EBX, 0 ; in EBX retinem frecventa bitilor 1
+    58 00000045 BA00000000                      mov EDX, 0 ; in EDX retinem la fiecare pas ultima cifra din EAX
+    59                                          
+    60                                          repeta:
+    61 0000004A 89C2                            mov EDX, EAX ; copiem EAX-ul curent
+    62 0000004C 83E201                          and EDX, 01h ; in EDX ramane ultima cifra a lui EAX
+    63 0000004F 83FA00                          cmp EDX, 0 ; daca e zero, trecem mai departe cu cautarea
+    64 00000052 7403                            jz diferit_de_1
+    65 00000054 83C301                          add EBX, 1 ; daca e 1, incrementam EBX iar rezultatul final e in EBX
+    66                                          
+    67                                          diferit_de_1:
+    68 00000057 D1E8                            shr EAX, 1 ; trecem la cifra urmatoare
+    69 00000059 83F800                          cmp EAX, 0
+    70                                          
+    71 0000005C 75EC                            jnz repeta
+    72                                          
+    73                                          ; mov [ESP+8], EBX
+    74                                          
+    75 0000005E 53                              push dword ebx
+    76 0000005F FF35[12000000]                  push dword [cifra]
+    77 00000065 68[1D000000]                    push dword format_afisare
+    78 0000006A FF15[00000000]                  call [printf]
+    79 00000070 83C40C                          add ESP, 4*3
+    80                                          
+    81 00000073 EBA8                            jmp citire_repeta
+    82                                          gata_citire:
+    83                                          
+    84                                          
+    85                                          ; exit(0)
+    86                                          eroare_deschidere:
+    87 00000075 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    88 00000077 FF15[00000000]                  call    [exit]       ; call exit to terminate the program

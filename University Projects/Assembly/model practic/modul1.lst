@@ -1,0 +1,26 @@
+     1                                  bits 32
+     2                                  
+     3                                  global nr_biti_1
+     4                                  
+     5                                  segment code use32 class = code public
+     6                                      nr_biti_1:
+     7 00000000 8B442404                        mov EAX, [ESP+4] ; in EAX retinem numarul
+     8 00000004 BB00000000                      mov EBX, 0 ; in EBX retinem frecventa bitilor 1
+     9 00000009 BA00000000                      mov EDX, 0 ; in EDX retinem la fiecare pas ultima cifra din EAX
+    10                                          
+    11                                          repeta:
+    12 0000000E 89C2                            mov EDX, EAX ; copiem EAX-ul curent
+    13 00000010 83E201                          and EDX, 01h ; in EDX ramane ultima cifra a lui EAX
+    14 00000013 83FA00                          cmp EDX, 0 ; daca e zero, trecem mai departe cu cautarea
+    15 00000016 7403                            jz diferit_de_1
+    16 00000018 83C301                          add EBX, 1 ; daca e 1, incrementam EBX iar rezultatul final e in EBX
+    17                                          
+    18                                          diferit_de_1:
+    19 0000001B D1E8                            shr EAX, 1 ; trecem la cifra urmatoare
+    20 0000001D 83F800                          cmp EAX, 0
+    21                                          
+    22 00000020 75EC                            jnz repeta
+    23                                          
+    24 00000022 895C2408                        mov [ESP+8], EBX
+    25                                          
+    26 00000026 C20800                          ret 4*2 ; eliberam argumentul de pe stiva
