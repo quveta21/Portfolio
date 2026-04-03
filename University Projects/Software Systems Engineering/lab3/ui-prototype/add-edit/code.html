@@ -1,0 +1,262 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Atheneum - Task Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#a83836",
+                        "secondary-fixed": "#dbe4e8",
+                        "on-secondary-fixed": "#384144",
+                        "on-tertiary-fixed": "#4f441a",
+                        "surface-container-high": "#e2e9ee",
+                        "on-tertiary-container": "#63562a",
+                        "inverse-surface": "#0b0f11",
+                        "secondary": "#586064",
+                        "surface-tint": "#4d626c",
+                        "surface-container-highest": "#dbe4e9",
+                        "error-container": "#fa746f",
+                        "on-primary-fixed-variant": "#495f69",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#f1fafe",
+                        "outline": "#737c81",
+                        "secondary-fixed-dim": "#cdd6da",
+                        "inverse-primary": "#d8effb",
+                        "on-error": "#fff7f6",
+                        "tertiary-container": "#fdeab1",
+                        "primary": "#4d626c",
+                        "primary-dim": "#415660",
+                        "surface-variant": "#dbe4e9",
+                        "on-surface-variant": "#586065",
+                        "on-surface": "#2b3438",
+                        "error-dim": "#67040d",
+                        "on-primary-fixed": "#2d424c",
+                        "on-primary-container": "#40555f",
+                        "primary-container": "#cfe6f2",
+                        "on-primary": "#f2faff",
+                        "surface": "#f7fafc",
+                        "inverse-on-surface": "#9a9da0",
+                        "background": "#f7fafc",
+                        "secondary-container": "#dbe4e8",
+                        "surface-bright": "#f7fafc",
+                        "tertiary-fixed": "#fdeab1",
+                        "tertiary-dim": "#5f5227",
+                        "surface-container-low": "#eff4f8",
+                        "on-error-container": "#6e0a12",
+                        "primary-fixed-dim": "#c1d8e4",
+                        "on-background": "#2b3438",
+                        "surface-dim": "#d3dbe1",
+                        "on-tertiary": "#fff8ed",
+                        "primary-fixed": "#cfe6f2",
+                        "on-secondary-container": "#4a5357",
+                        "on-tertiary-fixed-variant": "#6d6033",
+                        "on-secondary-fixed-variant": "#545d60",
+                        "tertiary-fixed-dim": "#eedca4",
+                        "tertiary": "#6b5e32",
+                        "surface-container": "#e9eff3",
+                        "outline-variant": "#abb3b8",
+                        "secondary-dim": "#4c5458"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-focus-bg {
+            backdrop-filter: blur(12px);
+            background-color: rgba(247, 250, 252, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar Shell -->
+<header class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white font-['Manrope']" style="">Atheneum</span>
+<div class="hidden md:flex items-center gap-6">
+<nav class="flex items-center gap-6 font-['Manrope'] font-medium tracking-tight">
+<a class="text-slate-900 dark:text-white font-semibold" href="#" style="">Workspace</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#" style="">Archive</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#" style="">Shared</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-colors scale-95 active:scale-90 transition-transform" style="">
+<span class="material-symbols-outlined" style="">grid_view</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-slate-900 transition-colors scale-95 active:scale-90 transition-transform" style="">
+<span class="material-symbols-outlined" style="">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile" data-alt="close-up portrait of a professional woman with a friendly expression in a bright minimalist office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBLxvETXDEFjJ1HKfH5lb72_Q32uuJFrZP3fPokxWm0aJ-QMkr0-3Hxf_cSQqWKpS5riJluwQIK0LujSc9VMF5I9QQ33zDjDnpWAwN13wQ5fbHonRviyrXPrWlPRQJhnQLPH4K2_f9Fk71wgrdxkQ44L3nmkMSm8j3a8MqE8VMgPBPyWZSYviR656538EhMru-dRAOzoEY9uFZBaodmNQ2y7bhP8onWH2kl6ydlKRXC_Db-ifQjDHr7K_zqAmgGHUvV3zlq7LGgIQ" class="" style="">
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex fixed left-0 top-0 h-screen w-72 bg-slate-100 dark:bg-slate-900/50 flex flex-col h-full py-8 pt-24">
+<div class="px-8 mb-8">
+<h2 class="text-lg font-black text-slate-900 dark:text-white font-['Manrope']" style="">Workspace</h2>
+<p class="text-xs text-slate-500 font-['Manrope']" style="">Deep Work Focus</p>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-900 dark:text-white font-semibold border-l-4 border-slate-600 dark:border-slate-400 bg-slate-200/50 dark:bg-slate-800/30 transition-all duration-300 translate-x-1 transition-transform" href="#" style="">
+<span class="material-symbols-outlined" style="">today</span>
+<span class="font-['Manrope'] text-sm font-medium" style="">Daily</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/80 dark:hover:bg-slate-800/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">calendar_month</span>
+<span class="font-['Manrope'] text-sm font-medium" style="">Monthly</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/80 dark:hover:bg-slate-800/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">event_note</span>
+<span class="font-['Manrope'] text-sm font-medium" style="">Yearly</span>
+</a>
+</nav>
+<div class="px-6 py-4">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-primary-dim transition-colors" style="">
+<span class="material-symbols-outlined" style="">add</span>
+                New Collection
+            </button>
+</div>
+<div class="mt-auto border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/80 transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">archive</span>
+<span class="font-['Manrope'] text-sm font-medium" style="">Archive</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-200/80 transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">settings</span>
+<span class="font-['Manrope'] text-sm font-medium" style="">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area with "Soft Focus" Blur Overlay -->
+<main class="md:ml-72 pt-20 p-8 min-h-screen relative">
+<!-- Background Content (Blurred) -->
+<div class="opacity-40 blur-md pointer-events-none select-none">
+<div class="max-w-4xl mx-auto space-y-8">
+<header>
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface" style="">Daily Review</h1>
+<p class="text-on-surface-variant" style="">Focusing on your high-impact intentions.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm h-32"></div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm h-32"></div>
+</div>
+</div>
+</div>
+<!-- Task Detail Screen Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 soft-focus-bg">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden border border-outline-variant/10">
+<!-- Modal Header -->
+<div class="px-8 py-6 border-b border-surface-container flex items-center justify-between bg-surface-container-lowest">
+<h2 class="text-2xl font-bold font-headline text-on-surface" style="">Task Details</h2>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors" style="">
+<span class="material-symbols-outlined" style="">close</span>
+</button>
+</div>
+<form class="p-8 space-y-8 overflow-y-auto max-h-[819px]">
+<!-- Task Title -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Task Title</label>
+<input class="w-full px-0 py-2 text-2xl font-headline font-semibold bg-transparent border-0 border-b-2 border-transparent focus:border-primary focus:ring-0 placeholder:text-surface-dim transition-all" placeholder="Enter task title..." type="text" value="Architectural Design Systems Review">
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Description</label>
+<textarea class="w-full p-4 bg-surface-container-low rounded-xl border-0 focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 transition-all" placeholder="Describe the objective and desired outcome..." rows="3">Analyze the component modularity and tonal hierarchy of the new Atheneum project. Focus on editorial typography contrast.</textarea>
+</div>
+<!-- Bento-style Grid for Meta Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Priority -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Priority</label>
+<div class="relative">
+<select class="w-full p-4 bg-surface-container-low rounded-xl border-0 focus:ring-2 focus:ring-primary/20 appearance-none font-medium">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+<option selected="" value="high">High</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" style="">expand_more</span>
+</div>
+</div>
+<!-- Interval -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Time Interval</label>
+<div class="relative">
+<select class="w-full p-4 bg-surface-container-low rounded-xl border-0 focus:ring-2 focus:ring-primary/20 appearance-none font-medium">
+<option selected="" value="daily">Daily</option>
+<option value="monthly">Monthly</option>
+<option value="yearly">Yearly</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" style="">expand_more</span>
+</div>
+</div>
+<!-- Deadline -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Deadline</label>
+<div class="relative">
+<input class="w-full p-4 bg-surface-container-low rounded-xl border-0 focus:ring-2 focus:ring-primary/20 font-medium" type="date" value="2024-05-24">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant" style="">calendar_today</span>
+</div>
+</div>
+<!-- Labels/Tags -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label" style="">Labels</label>
+<div class="flex flex-wrap gap-2 p-2 bg-surface-container-low rounded-xl">
+<span class="flex items-center gap-1 px-3 py-1 bg-tertiary-container text-on-tertiary-container text-xs font-bold rounded-full uppercase tracking-tighter" style="">
+                                    Design
+                                    <button class="material-symbols-outlined text-sm" type="button" style="">close</button>
+</span>
+<span class="flex items-center gap-1 px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full uppercase tracking-tighter" style="">
+                                    Review
+                                    <button class="material-symbols-outlined text-sm" type="button" style="">close</button>
+</span>
+<button class="flex items-center justify-center w-6 h-6 rounded-full border-2 border-dashed border-outline-variant text-outline-variant hover:border-primary hover:text-primary transition-colors" type="button" style="">
+<span class="material-symbols-outlined text-sm" style="">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-8 flex flex-col sm:flex-row items-center gap-4 border-t border-surface-container">
+<button class="w-full sm:w-auto px-8 py-3 bg-gradient-to-br from-primary to-primary-dim text-on-primary rounded-xl font-semibold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit" style="">
+                            Save Task
+                        </button>
+<button class="w-full sm:w-auto px-8 py-3 bg-surface-container text-on-surface rounded-xl font-semibold hover:bg-surface-container-high transition-colors" type="button" style="">
+                            Cancel
+                        </button>
+<div class="hidden sm:block ml-auto">
+<button class="flex items-center gap-2 text-error font-medium px-4 py-2 hover:bg-error/5 rounded-lg transition-colors" type="button" style="">
+<span class="material-symbols-outlined" style="">delete</span>
+                                Delete
+                            </button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on this transactional screen as per protocol) -->
+</body></html>

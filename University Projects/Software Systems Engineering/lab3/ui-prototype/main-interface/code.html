@@ -1,0 +1,261 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Atheneum | Digital Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#384144",
+                        "surface": "#f7fafc",
+                        "on-primary-fixed": "#2d424c",
+                        "on-tertiary-fixed-variant": "#6d6033",
+                        "on-secondary-fixed-variant": "#545d60",
+                        "on-primary": "#f2faff",
+                        "secondary": "#586064",
+                        "surface-container-high": "#e2e9ee",
+                        "on-primary-fixed-variant": "#495f69",
+                        "primary": "#4d626c",
+                        "inverse-on-surface": "#9a9da0",
+                        "error-container": "#fa746f",
+                        "error-dim": "#67040d",
+                        "secondary-container": "#dbe4e8",
+                        "outline": "#737c81",
+                        "surface-dim": "#d3dbe1",
+                        "inverse-surface": "#0b0f11",
+                        "surface-container-low": "#eff4f8",
+                        "on-tertiary-container": "#63562a",
+                        "on-surface-variant": "#586065",
+                        "inverse-primary": "#d8effb",
+                        "tertiary-fixed": "#fdeab1",
+                        "tertiary-fixed-dim": "#eedca4",
+                        "on-tertiary": "#fff8ed",
+                        "surface-bright": "#f7fafc",
+                        "secondary-dim": "#4c5458",
+                        "on-primary-container": "#40555f",
+                        "on-error": "#fff7f6",
+                        "surface-container": "#e9eff3",
+                        "tertiary-container": "#fdeab1",
+                        "primary-container": "#cfe6f2",
+                        "error": "#a83836",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#dbe4e9",
+                        "on-secondary-container": "#4a5357",
+                        "primary-fixed": "#cfe6f2",
+                        "background": "#f7fafc",
+                        "primary-fixed-dim": "#c1d8e4",
+                        "tertiary-dim": "#5f5227",
+                        "tertiary": "#6b5e32",
+                        "surface-tint": "#4d626c",
+                        "surface-container-highest": "#dbe4e9",
+                        "on-tertiary-fixed": "#4f441a",
+                        "on-secondary": "#f1fafe",
+                        "secondary-fixed-dim": "#cdd6da",
+                        "on-error-container": "#6e0a12",
+                        "on-background": "#2b3438",
+                        "on-surface": "#2b3438",
+                        "secondary-fixed": "#dbe4e8",
+                        "primary-dim": "#415660",
+                        "outline-variant": "#abb3b8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-8 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white shrink-0" style="">TaskManager</div>
+<!-- Search Bar Anchor -->
+<div class="flex-1 max-w-2xl relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" style="">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-2.5 pl-12 pr-12 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-highest transition-all duration-300 font-body text-sm" placeholder="Search tasks, notes, or archives..." type="text">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg hover:bg-surface-container-high transition-colors" style="">
+<span class="material-symbols-outlined text-outline" style="">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6 font-headline font-medium tracking-tight text-slate-500">
+<a class="text-slate-900 font-semibold transition-colors duration-200" href="#" style="">Daily</a>
+<a class="hover:text-slate-900 transition-colors duration-200" href="#" style="">Insights</a>
+<a class="hover:text-slate-900 transition-colors duration-200" href="#" style="">Library</a>
+</nav>
+<div class="flex items-center gap-3 ml-4">
+<span class="material-symbols-outlined text-slate-700 cursor-pointer scale-95 active:scale-90 transition-transform" style="">grid_view</span>
+<span class="material-symbols-outlined text-slate-700 cursor-pointer scale-95 active:scale-90 transition-transform" style="">settings</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden cursor-pointer border-2 border-surface">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a creative individual with soft natural lighting and minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnENF1Vt3SpSDbjDcH8vT__ezVb7uP56XDg_IvDYIQT_-tf5Uoia5Myw8qZAYso3rEVJK0TyAiEP_-bEge8HTAKRbQo_jIRJTeYiKgvkmnUQu1-Z2qi6g9Ks3Yw37TFyFQQDX74TRpL-TsvWyhgKvrm_X5SPoB6Kv6pFgaFBmbQL1wTT8luUNojPSxnWEbtmGkJ72N07RIAW7FtFmZGC8Cd7czGnaDk11KH71I698Aaw33XE33DqqMNtsJLxSAGzDN7ArKiAST1UE" style="">
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-72 bg-slate-100 dark:bg-slate-900/50 flex flex-col h-full py-8 pt-24">
+<div class="px-8 mb-10">
+<div class="flex items-center gap-3 mb-1">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">auto_stories</span>
+</div>
+<h2 class="text-lg font-black text-slate-900 tracking-tight" style="">Workspace</h2>
+</div>
+<p class="text-xs text-slate-500 font-medium px-1 uppercase tracking-widest" style="">Deep Work Focus</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-900 font-semibold border-l-4 border-slate-600 bg-slate-200/50 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">today</span>
+<span class="font-headline text-sm" style="">Daily</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-200/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">calendar_month</span>
+<span class="font-headline text-sm" style="">Monthly</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-200/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">event_note</span>
+<span class="font-headline text-sm" style="">Yearly</span>
+</a>
+</nav>
+<div class="px-6 mb-8">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-xl font-headline font-bold text-sm shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all duration-300 active:scale-[0.98]" style="">
+<span class="material-symbols-outlined text-lg" style="">add</span>
+                New Collection
+            </button>
+</div>
+<div class="mt-auto border-t border-slate-200/50 pt-4">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-200/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">archive</span>
+<span class="font-headline text-sm" style="">Archive</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-slate-200/80 transition-all duration-300" href="#" style="">
+<span class="material-symbols-outlined" style="">settings</span>
+<span class="font-headline text-sm" style="">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 pt-28 px-12 pb-20 min-h-screen">
+<div class="max-w-4xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-12">
+<h1 class="text-4xl font-extrabold font-headline tracking-tighter text-on-surface mb-2" style="">Today's Focus</h1>
+<p class="text-on-surface-variant font-body" style="">Manage your deep work and administrative cycles.</p>
+</header>
+<!-- Active Tasks Section -->
+<section class="space-y-4 mb-16">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-outline" style="">Active Tasks</h3>
+<div class="flex gap-2">
+<button class="text-xs font-semibold px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant" style="">Priority</button>
+<button class="text-xs font-semibold px-3 py-1 rounded-full text-outline hover:bg-surface-container-low transition-colors" style="">Alphabetical</button>
+</div>
+</div>
+<!-- Task Card 1: High Priority -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-5 flex items-start gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-slate-200/50">
+<div class="w-1 h-12 bg-error rounded-full absolute left-0 top-1/2 -translate-y-1/2"></div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline font-bold text-slate-900" style="">Finalize Quarterly Strategy</h4>
+<span class="px-2.5 py-0.5 rounded-full bg-error/10 text-error text-[10px] font-black uppercase tracking-widest" style="">High</span>
+</div>
+<p class="text-sm text-slate-500 line-clamp-1 font-body" style="">Outline the roadmap for Q3 including resource allocation and core KPIs for the design system rollout.</p>
+</div>
+<div class="flex items-center self-center pr-2">
+<input class="w-6 h-6 rounded-lg border-2 border-surface-variant text-primary focus:ring-primary/20 transition-all cursor-pointer" type="checkbox">
+</div>
+</div>
+<!-- Task Card 2: Medium Priority -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-5 flex items-start gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-slate-200/50">
+<div class="w-1 h-12 bg-tertiary rounded-full absolute left-0 top-1/2 -translate-y-1/2"></div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline font-bold text-slate-900" style="">Review Feedback on Lumina UI</h4>
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container text-[10px] font-black uppercase tracking-widest" style="">Medium</span>
+</div>
+<p class="text-sm text-slate-500 line-clamp-1 font-body" style="">Consolidate findings from the usability study held last Tuesday regarding the bento grid navigation.</p>
+</div>
+<div class="flex items-center self-center pr-2">
+<input class="w-6 h-6 rounded-lg border-2 border-surface-variant text-primary focus:ring-primary/20 transition-all cursor-pointer" type="checkbox">
+</div>
+</div>
+<!-- Task Card 3: Low Priority -->
+<div class="group relative bg-surface-container-lowest rounded-xl p-5 flex items-start gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl hover:shadow-slate-200/50">
+<div class="w-1 h-12 bg-secondary rounded-full absolute left-0 top-1/2 -translate-y-1/2"></div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline font-bold text-slate-900" style="">Update Team Availability</h4>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-black uppercase tracking-widest" style="">Low</span>
+</div>
+<p class="text-sm text-slate-500 line-clamp-1 font-body" style="">Synchronize the shared calendar for the upcoming company retreat.</p>
+</div>
+<div class="flex items-center self-center pr-2">
+<input class="w-6 h-6 rounded-lg border-2 border-surface-variant text-primary focus:ring-primary/20 transition-all cursor-pointer" type="checkbox">
+</div>
+</div>
+</section>
+<!-- Completed Tasks Collapsible -->
+<section class="border-t border-slate-200/60 pt-8">
+<details class="group cursor-pointer" style="">
+<summary class="flex items-center gap-3 list-none mb-6" style="">
+<span class="material-symbols-outlined text-outline transition-transform group-open:rotate-90" style="">chevron_right</span>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-outline" style="">Completed Tasks (2)</h3>
+</summary>
+<div class="space-y-3 pl-8">
+<!-- Completed Task 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-dim/20 rounded-xl opacity-60">
+<div class="flex-1">
+<h4 class="font-headline font-semibold text-slate-600 line-through decoration-slate-400" style="">Coffee chat with Sarah</h4>
+<p class="text-xs text-slate-400" style="">Met at Blue Bottle at 9:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">check_box</span>
+</div>
+<!-- Completed Task 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-dim/20 rounded-xl opacity-60">
+<div class="flex-1">
+<h4 class="font-headline font-semibold text-slate-600 line-through decoration-slate-400" style="">Backup repository archives</h4>
+<p class="text-xs text-slate-400" style="">Successfully synced to secure storage</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">check_box</span>
+</div>
+</div>
+</details>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Only on Home/Dashboard) -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-gradient-to-br from-primary to-primary-dim text-white rounded-full flex items-center justify-center shadow-2xl shadow-primary/40 hover:scale-110 active:scale-95 transition-all duration-300 z-40" style="">
+<span class="material-symbols-outlined text-3xl" style="">add</span>
+</button>
+<!-- Soft Focus Effect Overlay (Hidden by default) -->
+<div class="fixed inset-0 bg-slate-900/10 glass-effect opacity-0 pointer-events-none transition-opacity duration-500 z-[60]" id="modal-overlay"></div>
+</body></html>
