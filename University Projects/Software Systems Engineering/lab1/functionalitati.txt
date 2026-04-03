@@ -1,0 +1,23 @@
+TaskManager -> Gestiunea task-urilor personale
+
+Rol: User
+BD: PostgreSQL
+Aplicatie: JavaFX
+
+1. Import din JSON in baza de date
+2. CRUD pentru entitatea Task
+3. Marcare Task ca finalizat (checkbox)
+4. Adaugare prioritati pentru Task-uri
+	- Low
+	- Medium
+	- High
+5. Organizare Task-uri pe interval de timp
+	- Daily Tasks
+	- Monthly Tasks
+	- Yearly Tasks
+6. Cautare (dupa titlu, descriere, etichete)
+7. Filtrare (dupa prioritate sau interval de timp)
+
+NICE TO HAVE
+7. Adaugare deadline pentru Task-uri si notificari cand se apropie de deadline
+8. Drag and drop in lista pentru reorganizarea task-urilor
