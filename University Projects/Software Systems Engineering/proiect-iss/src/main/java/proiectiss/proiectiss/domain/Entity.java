@@ -1,0 +1,8 @@
+package proiectiss.proiectiss.domain;
+
+public abstract class Entity<ID> {
+    private ID id;
+    public Entity(ID id) { this.id = id; }
+    public ID getID() { return id; }
+    public void setID(ID id) { this.id = id; }
+}

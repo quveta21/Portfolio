@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" prefHeight="500" prefWidth="700" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="welcomeLabel" style="-fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <TextField fx:id="searchField" promptText="Cauta dupa titlu..." onKeyReleased="#onSearch"/>
+        <ComboBox fx:id="filterPriorityCombo" promptText="Filtru Prioritate" onAction="#onFilter"/>
+    </HBox>
+
+    <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTitle" text="Titlu" prefWidth="150"/>
+            <TableColumn fx:id="colDesc" text="Descriere" prefWidth="200"/>
+            <TableColumn fx:id="colPriority" text="Prioritate" prefWidth="100"/>
+            <TableColumn fx:id="colTime" text="Interval" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Adauga Task" onAction="#onAddClick" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button text="Sterge Task" onAction="#onDeleteClick" style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+        <Button text="Editeaza Task" onAction="#onEditClick" style="-fx-background-color: #FFA500; -fx-text-fill: white;"/>
+        <Button text="Finalizeaza" onAction="#onMarkDoneClick" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>
