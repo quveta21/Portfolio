@@ -1,0 +1,141 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="I4MN84mT1eIpjpA-w3IH">
+    <mxGraphModel dx="1084" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0p8LP6S4SgljB5ebcNus-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="User" vertex="1">
+          <mxGeometry height="1087" width="35" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="&lt;&lt;boundary&gt;&gt;&#xa;mc: MainController" vertex="1">
+          <mxGeometry height="1087" width="156" x="220" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="&lt;&lt;control&gt;&gt;&#xa;ts: TaskService" vertex="1">
+          <mxGeometry height="1087" width="150" x="426" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="&lt;&lt;boundary&gt;&gt;&#xa;tr: TaskRepo" vertex="1">
+          <mxGeometry height="1087" width="150" x="626" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value=": SGBD" vertex="1">
+          <mxGeometry height="1087" width="150" x="826" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="&lt;&lt;boundary&gt;&gt;&#xa;tw: TaskFormWindow" vertex="1">
+          <mxGeometry height="1087" width="170" x="1111" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-7" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-2" value="1: clickAdd()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="129" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-8" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" value="&lt;&lt;create&gt;&gt; 2: TaskFormWindow(ts)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="756" y="183" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-9" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="3: show()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="756" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-10" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="4: titlu = insertTitlu(): String">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="324" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-11" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="5: descriere = insertDescriere(): String">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="378" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-12" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="6: prioritate = selectPrioritate(): String">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="432" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-13" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="7: timp = selectIntervalTimp(): String">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="486" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-14" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="8: clickSave()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-15" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-3" value="9: createTask(titlu, descriere, prioritate, timp)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="594" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-16" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-4" value="10: saveTask(Task)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="648" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-17" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-5" value="11: INSERT SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="702" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-18" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-4" value="succes">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="813" y="756" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-19" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-3" value="confirmare">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="613" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-20" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-6" value="confirmare">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="857" y="864" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-21" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="0p8LP6S4SgljB5ebcNus-2" value="12: refreshTaskList()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="759" y="918" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0p8LP6S4SgljB5ebcNus-22" edge="1" parent="1" source="0p8LP6S4SgljB5ebcNus-6" style="curved=1;endArrow=block;rounded=0;" target="0p8LP6S4SgljB5ebcNus-6" value="13: close()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1247" y="972" />
+              <mxPoint x="1247" y="1002" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
