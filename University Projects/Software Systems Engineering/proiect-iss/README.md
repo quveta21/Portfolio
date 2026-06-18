@@ -1,0 +1,1 @@
+Due to some messy lab organization at the university, I couldn't fully finish this JavaFX/PostgreSQL TaskManager. Still, the main features work great! You can easily add, edit, delete, and check off tasks, search them by name, or filter them by priority and timeframes.
