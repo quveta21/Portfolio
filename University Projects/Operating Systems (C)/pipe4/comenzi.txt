@@ -1,0 +1,4 @@
+DELETE clatite
+APPEND Ultima linie din fisier
+DELETE mere
+DELETE aluna
