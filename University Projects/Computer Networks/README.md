@@ -1,0 +1,1 @@
+Computer networking fundamentals, focusing on low-level TCP/UDP client-server socket programming in C, alongside functional network architecture mapping and routing configuration using Cisco Packet Tracer.
