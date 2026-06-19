@@ -1,0 +1,1 @@
+Relational database design and evolution implemented in SQL Server Management Studio, focusing on iterative schema development, custom procedures, functions, and performance optimization via indexing.
