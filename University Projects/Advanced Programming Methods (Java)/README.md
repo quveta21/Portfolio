@@ -1,0 +1,1 @@
+Advanced programming paradigms built upon core OOP foundations, featuring a Java/JavaFX application focused on layered architecture (MVC), stream processing, and multi-threaded event-driven UI development.
