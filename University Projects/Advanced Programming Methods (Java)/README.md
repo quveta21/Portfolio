@@ -1,1 +1,1 @@
-Advanced programming paradigms built upon core OOP foundations, featuring a Java/JavaFX application focused on layered architecture (MVC), stream processing, and multi-threaded event-driven UI development.
+Advanced programming paradigms built upon core OOP foundations, featuring a Java/JavaFX social network and messaging application. The project implements a layered architecture (MVC), stream processing, and event-driven workflows to power real-time chatting, friend management, instantaneous message updates, and dynamic 'user is typing...' status indicators.
