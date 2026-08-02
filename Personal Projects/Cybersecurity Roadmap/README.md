@@ -1,0 +1,1 @@
+A collection of my personal cybersecurity projects focused on hands-on, applied learning. Through these repositories, I explore core security mechanics: writing custom C/C++ memory injectors to understand Windows Internals, building raw Python network tools, deploying Active Directory & SIEM homelabs for threat detection, and diving into reverse engineering.
