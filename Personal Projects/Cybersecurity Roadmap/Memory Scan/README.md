@@ -1,0 +1,1 @@
+The target program allocates a "secret" on the heap, while the scanner uses ptrace and /proc/[pid]/mem to attach to the victim, navigate its virtual address space, and extract the hidden data, exploring OS-level security protections and execution permissions in the process.
