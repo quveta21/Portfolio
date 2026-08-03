@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marcm\\roadmap_cyber\\dll_injection\\injector\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{31EB02D3-4CC8-42F0-9F2A-63FD9C170303}|injector.vcxproj|C:\\Users\\marcm\\roadmap_cyber\\dll_injection\\injector\\injector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{31EB02D3-4CC8-42F0-9F2A-63FD9C170303}|injector.vcxproj|solutionrelative:injector.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "injector.cpp",
+              "DocumentMoniker": "C:\\Users\\marcm\\roadmap_cyber\\dll_injection\\injector\\injector.cpp",
+              "RelativeDocumentMoniker": "injector.cpp",
+              "ToolTip": "C:\\Users\\marcm\\roadmap_cyber\\dll_injection\\injector\\injector.cpp",
+              "RelativeToolTip": "injector.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-31T09:45:32.797Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
