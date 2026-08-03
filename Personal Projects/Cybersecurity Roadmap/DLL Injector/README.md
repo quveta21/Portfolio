@@ -1,0 +1,1 @@
+A C++ project exploring Windows API process manipulation by building a basic DLL injector. It uses core functions like VirtualAllocEx and CreateRemoteThread to load a custom payload into another process, demonstrating how basic code injection works at the OS level.
