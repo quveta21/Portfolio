@@ -1,0 +1,1 @@
+My implementation of a Linked List in C++, built to practice raw pointer manipulation and dynamic memory allocation. It features core operations and it's strictly verified with Valgrind to guarantee zero memory leaks.
