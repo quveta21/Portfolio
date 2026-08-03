@@ -1,0 +1,13 @@
+bin/
+obj/
+.idea/
+x64/
+Debug/
+Release/
+*.user
+*.dll
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
