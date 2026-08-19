@@ -1,0 +1,1 @@
+A multithreaded Python port scanner built to understand basic network reconnaissance. It uses TCP sockets with short timeouts and a thread pool to scan up to 50 ports simultaneously, efficiently identifying open ports on a target IP without hanging execution.
