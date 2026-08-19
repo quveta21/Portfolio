@@ -1,0 +1,1 @@
+A raw Python network sniffer built to explore how packets are actually structured under the hood. It skips high-level libraries and uses raw sockets to manually unpack Ethernet, IP, and TCP headers byte-by-byte, extracting source/destination IPs, ports, and TTL.
